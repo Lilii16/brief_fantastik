@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,8 +89,7 @@ include('header.php');
                 </form>
                 
 </body>
+<?php
+include('footer.php');
+?>
 </html>
-
-       
-
-           

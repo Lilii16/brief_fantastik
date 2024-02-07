@@ -1,54 +1,6 @@
 <?php
-
-
-$services = array(
-  array(
-      'id' => 1,
-      'titre' => 'Temptation is never over',
-      'prix' => 19.99,
-      'description' => 'Description du Service 1.',
-      'source' => 'assets\pictures\cards1.png' 
-  ),
-  array(
-      'id' => 2,
-      'titre' => 'Something lies beneath Water',
-      'prix' => 280,
-      'description' => 'Description du Service 2.',
-      'source' => 'assets\pictures\cards2.png' 
-  ),
-  array(
-      'id' => 3,
-      'titre' => 'Indian Dream',
-      'prix' => 390,
-      'description' => 'Description du Service 3.',
-      'source' => 'assets\pictures\cards3.png' 
-  ),
-  array(
-      'id' => 4,
-      'titre' => 'Into the Woods',
-      'prix' => 490,
-      'description' => 'Description du Service 4.',
-      'source' => 'assets\pictures\cards4.png' 
-  ),
-  array(
-    'id' => 5,
-    'titre' => 'A river of Diamonds',
-    'prix' => 220,
-    'description' => 'Description du Service 5.',
-    'source' => 'assets\pictures\cards5.png' 
-  ),
-  array(
-    'id' => 6,
-    'titre' => 'A whimsical Night',
-    'prix' => 350,
-    'description' => 'Description du Service 6.',
-    'source' => 'assets\pictures\cards6.png' 
-    //'source' => //rajouter chemin img, 
-  )
-);
-
-
-
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/function.fn.php';
 ?>
 
 <!DOCTYPE html>
@@ -78,37 +30,52 @@ include('header.php');
 <audio id="myAudio" src="assets\audios\aquarium-by-saint-saens-156733.mp3"></audio>
 
  
+  <div class="titre vh-100 p-25 content mt-5 h-100">
+    <h1 class="shadow w-10">Once upon a time... </h1>
+    <h2 class="shadow p-25 justify-content-center">... an exlixir's story</h2>
+    <button class="shadow" id="btnAudio" onclick="pauseAndPlay()">Play ▶</button>
+  </div>
 
-<div class="content">
-
-<h1 class="text-light">BIEN PLUS QUE DES COMPLÉMENTS</h1>
-
-<h2 class="text-light">Une source de vie</h2>
-
-<button id="btnAudio" onclick="pauseAndPlay()">Play ▶</button>
-
-</div>
-<div class="row">
-<?php 
-  foreach ($services as $service) {
-    ?>
-    <div class="col-md-6 col-lg-4 col-xl-3 card">
-      <img src="<?php echo $service['source']?>" class="img-fluid card-img-top">
-      <div class="card-body">
-      <h5 class="card-title"><?php echo $service["titre"] ?></h5>
-      <p class="card-text"><?php echo $service["description"] ?></p>
-      <p><?php echo $service["prix"] ?></p>
-      <a class="btn btn-primary" href="localhost:8080/product.php?id=<?php echo $service['id']?>">Voir plus</a>
-      <!-- parametre pour intéroger la page sur l'id GET -->
-      </div>
-    </div>
-    <?php
-  }
-?>
-</div>
 
 <?php
-include('footer.php');
+$limit = 15;
+$orderBy = isset($_GET['orderBy']) ? $_GET['orderBy'] : true; // Par défaut, ordonner les items
+$items = orderItemsByPrice($conn, $limit, $orderBy);
+?>
+
+<div class="row row-cols-1 row-cols-md-3 m-auto justify-content-center ">
+   
+  <!-- //On recupére le tablau de docteurs exploitable doctors
+//   $drugs = findAllDrugs($conn);
+  //on crée une bloucle pour récupérer chaque docteur dans une card bootstrap -->
+  <?php 
+  foreach ($items as $item) {
+    $path = findPictureByItem($conn, $item["id"])['picture_path'];
+    ?>
+    <div class="card col text-center m-3 p-0 rounded-3 opacity-75" style="width: 300px;">
+    <?php if (isset($path)): ?>
+      <img src= "<?= $path ?>" class="card-img-top rounded-0 h-50 bg-green" alt="">
+    <?php endif; ?>
+    <div class="card-body bg-green">
+        <h5 class="card-title"><?php echo $item["name"] ?></h5>
+        <p class="card-text"><?php echo $item["description"] ?></p>
+        <p><?php echo $item["price"] ?> €</p>
+        <p><?php echo isset($item["capacities"]) ? $item["capacities"] . ' ml' : ''; ?></p>
+        <a class="btn btn-green" href='itemdetail.php?id=<?php echo $item["id"]; ?>'>Voir plus</a>
+     <!-- parametre pour intéroger la page sur l'id GET -->
+      </div>
+    </div>
+  <?php } ?> 
+
+  </div>
+  <div>
+<form method="GET">
+<button type="submit" name="orderBy" value="true">ordre ascendant</button>
+<button type="submit" name="orderBy" value="false">pas d'ordre particulier</button>
+</form>
+</div>
+<?php
+include 'footer.php';
 ?>
 
 

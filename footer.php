@@ -1,9 +1,9 @@
-<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+<footer class="text-center text-lg-start bg-body-tertiary text-muted ">
   <!-- Section: Social media -->
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
+      <span>Nous suivre sur les réseaux :</span>
     </div>
     <!-- Left -->
 
@@ -33,7 +33,7 @@
   <!-- Section: Social media -->
 
   <!-- Section: Links  -->
-  <section class="">
+  <section class="bg-green">
     <div class="container text-center text-md-start mt-5">
       <!-- Grid row -->
       <div class="row mt-3">
@@ -41,11 +41,10 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Company name
+            <i class="fas fa-gem me-3"></i>BIODOLL
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit praesentium possimus, nihil assumenda consectetur ducimus similique quia exercitationem rem quas, perferendis aliquid animi quisquam totam at dolores aspernatur neque optio.
           </p>
         </div>
         <!-- Grid column -->
@@ -53,20 +52,26 @@
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
+          <h6 class="text-uppercase fw-bold mb-6">
+            Produits
           </h6>
           <p>
-            <a href="#!" class="text-reset">Angular</a>
+            <a href="#!" class="text-reset">Temptation is never over</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">React</a>
+            <a href="#!" class="text-reset">Something lies beneath Water</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vue</a>
+            <a href="#!" class="text-reset">Indian Dream</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Laravel</a>
+            <a href="#!" class="text-reset">Into the Woods</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">A river of Diamonds</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">A whimiscal Night</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -75,19 +80,13 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
+            Liens utiles
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="index.php" class="text-reset">Accueil</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
+            <a href="contact.php" class="text-reset">Contact</a>
           </p>
         </div>
         <!-- Grid column -->
@@ -96,13 +95,13 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-home me-3"></i> Marseille 13000, France</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@example.com
+            biodoll@contact.me
           </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          <p><i class="fas fa-phone me-3"></i> +33 6 22 33 44 55</p>
+          <p><i class="fas fa-print me-3"></i> +33 7 66 77 88 99</p>
         </div>
         <!-- Grid column -->
       </div>
@@ -113,8 +112,10 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2023 Copyright:
+    <a class="text-reset fw-bold">Jonathan & Ligia</a>
+    <p class="text-body" <?php include 'compteur.php'; ?>></p>
+    <?php echo "Vous êtes le visiteur numéro $nbre_vues de ce site ! Merci !<br>"; ?>
   </div>
   <!-- Copyright -->
 </footer>
