@@ -60,10 +60,10 @@ function findItemById($conn, $currentID) {
 }
 
 function orderItemsByPrice($conn, $limit, $orderBy = true) {
-  if ($orderBy) {
+  if ($orderBy === "true") {
       $sql = "SELECT * FROM items_cards ORDER BY price ASC LIMIT $limit;";
   } else {
-      $sql = "SELECT * FROM items_cards LIMIT $limit;";
+      $sql = "SELECT * FROM items_cards ORDER BY price DESC LIMIT $limit;";
   }
   $requete = $conn->query($sql);
   $items = $requete->fetchAll(PDO::FETCH_ASSOC);

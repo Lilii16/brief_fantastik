@@ -71,7 +71,7 @@ $items = orderItemsByPrice($conn, $limit, $orderBy);
   <div>
 <form method="GET">
 <button type="submit" name="orderBy" value="true">ordre ascendant</button>
-<button type="submit" name="orderBy" value="false">pas d'ordre particulier</button>
+<button type="submit" name="orderBy" value="false">ordre descendant</button>
 </form>
 </div>
 <?php
